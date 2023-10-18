@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-1
+  labels:
+    security: s1
+spec:
+  containers:
+  - image: registry.iutbeziers.fr/debianiut:latest
+    name: debianiut
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep infinity; done;" ]
+  tolerations:
+  - key: "node"
+    operator: "Equal"
+    value: "1"
+    effect: "NoSchedule"

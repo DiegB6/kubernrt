@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: debianpod
+  name: debianpod
+spec:
+  containers:
+  - image: registry.iutbeziers.fr/debianiut:latest
+    name: debianpod
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

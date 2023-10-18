@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2023-10-17T13:00:06Z"
+  labels:
+    kubernetes.io/metadata.name: applicatif
+  name: applicatif
+  resourceVersion: "27643"
+  uid: 58667e6e-00c6-4684-ad57-3d4a5b2605aa
+spec:
+  finalizers:
+  - kubernetes
+status:
+  phase: Active

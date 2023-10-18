@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2023-10-17T13:08:26Z"
+  generation: 1
+  labels:
+    app: python-app-deployment
+  name: python-app-deployment
+  namespace: applicatif
+  resourceVersion: "28483"
+  uid: f02ee4fb-eaa3-4cad-a535-bb6f78bb6aeb
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: python-app-deployment
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: python-app-deployment
+    spec:
+      nodeSelector:
+      containers:
+      - image: registry.iutbeziers.fr/pythonapp:latest
+        imagePullPolicy: Always
+        name: pythonapp
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2023-10-17T13:08:29Z"
+    lastUpdateTime: "2023-10-17T13:08:29Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-10-17T13:08:26Z"
+    lastUpdateTime: "2023-10-17T13:08:29Z"
+    message: ReplicaSet "python-app-deployment-558c4c466d" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

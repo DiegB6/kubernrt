@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: python-app-deployment
+  name: pythonnp
+  namespace: applicatif
+spec:
+  ports:
+  - port: 9002
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: python-app-deployment
+  type: NodePort
+status:
+  loadBalancer: {}
