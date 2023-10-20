@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-app-service
+  labels:
+    app: python-app
+spec:
+  selector:
+    app: python-app-deployment  # Assurez-vous que le libellé correspond à votre déploiement
+  ports:
+    - protocol: TCP
+      port: 5000  # Le port du service
+      targetPort: 5000  # Le port sur lequel votre application Python écoute dans le conteneur
+  type: ClusterIP  # Vous pouvez également utiliser "NodePort" ou "LoadBalancer" selon vos besoins
+

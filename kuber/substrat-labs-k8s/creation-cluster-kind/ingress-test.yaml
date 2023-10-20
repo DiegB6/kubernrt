@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: service-test
+spec:
+  defaultBackend:
+    service:
+      name: haproxy-service
+      port:
+        number: 80
